@@ -1668,9 +1668,11 @@ __evict_walk_file(WT_SESSION_IMPL *session,
 		}
 		if (btree_inuse == 0 || cache_inuse == 0)
 			return (0);
+#if 0
 		if (__wt_random64(&session->rnd) % cache_inuse >
 		    btree_inuse * QUEUE_FILLS_PER_PASS)
 			return (0);
+#endif
 	}
 
 	/*
